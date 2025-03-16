@@ -1,0 +1,1206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>petproject003</title>
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', Arial, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-top {
+            background-color: #0056b3;
+            color: #fff;
+            padding: 10px 0;
+        }
+        
+        .header-top .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .contact-info {
+            display: flex;
+        }
+        
+        .contact-info div {
+            margin-right: 20px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-info i {
+            margin-right: 5px;
+        }
+        
+        .social-links a {
+            color: #fff;
+            margin-left: 15px;
+            text-decoration: none;
+        }
+        
+        .logo-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 50px;
+            margin-right: 10px;
+        }
+        
+        .logo h1 {
+            color: #0056b3;
+            font-size: 24px;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            position: relative;
+        }
+        
+        nav ul li a {
+            color: #333;
+            text-decoration: none;
+            padding: 10px 15px;
+            display: block;
+            transition: all 0.3s ease;
+        }
+        
+        nav ul li a:hover {
+            color: #0056b3;
+        }
+        
+        nav ul li ul {
+            position: absolute;
+            background-color: #fff;
+            width: 200px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            display: none;
+            z-index: 1;
+        }
+        
+        nav ul li:hover ul {
+            display: block;
+        }
+        
+        nav ul li ul li {
+            width: 100%;
+        }
+        
+        .nav-btn {
+            background-color: #0056b3;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-btn:hover {
+            background-color: #003d82;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 500px;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('hospital-background.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            color: #fff;
+        }
+        
+        .hero-content {
+            max-width: 600px;
+        }
+        
+        .hero h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            margin-bottom: 30px;
+            font-size: 18px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #0056b3;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background-color: #003d82;
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 60px 0;
+            background-color: #fff;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .section-title h2 {
+            font-size: 32px;
+            color: #0056b3;
+            margin-bottom: 10px;
+        }
+        
+        .section-title p {
+            color: #666;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-card {
+            text-align: center;
+            padding: 30px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-card i {
+            font-size: 40px;
+            color: #0056b3;
+            margin-bottom: 20px;
+        }
+        
+        .feature-card h3 {
+            margin-bottom: 15px;
+        }
+        
+        /* Departments Section */
+        .departments {
+            padding: 60px 0;
+            background-color: #f5f5f5;
+        }
+        
+        .departments-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .department-card {
+            background-color: #fff;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .department-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .department-img {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .department-content {
+            padding: 20px;
+        }
+        
+        .department-content h3 {
+            margin-bottom: 10px;
+        }
+        
+        /* Doctors Section */
+        .doctors {
+            padding: 60px 0;
+            background-color: #fff;
+        }
+        
+        .doctors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .doctor-card {
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .doctor-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .doctor-img {
+            height: 250px;
+            background-size: cover;
+            background-position: top center;
+        }
+        
+        .doctor-info {
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .doctor-info h3 {
+            margin-bottom: 5px;
+        }
+        
+        .doctor-info p {
+            color: #0056b3;
+            margin-bottom: 10px;
+        }
+        
+        .doctor-social {
+            display: flex;
+            justify-content: center;
+        }
+        
+        .doctor-social a {
+            color: #666;
+            margin: 0 10px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .doctor-social a:hover {
+            color: #0056b3;
+        }
+        
+        /* Testimonials Section */
+        .testimonials {
+            padding: 60px 0;
+            background-color: #f5f5f5;
+        }
+        
+        .testimonial-slider {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .testimonial {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        
+        .testimonial p {
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .testimonial-author img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+        
+        .author-info h4 {
+            margin-bottom: 5px;
+        }
+        
+        .author-info small {
+            color: #666;
+        }
+
+        /* Add these styles to your existing CSS */
+
+        .testimonial-slider {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            padding: 20px 0;
+        }
+
+        .testimonial {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            opacity: 1;
+            transition: opacity 0.3s ease;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .testimonial-author img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 15px;
+        }
+
+        .testimonial-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .prev-btn, .next-btn {
+            background-color: #0056b3;
+            color: white;
+            border: none;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .prev-btn:hover, .next-btn:hover {
+            background-color: #003d82;
+        }
+
+        .testimonial-dots {
+            display: flex;
+            justify-content: center;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            background-color: #ddd;
+            border-radius: 50%;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .dot.active {
+            background-color: #0056b3;
+        }
+
+        /* Make sure images don't overflow */
+        .testimonial-author img {
+            border: 2px solid #0056b3;
+        }
+        
+        /* Appointment Section */
+        .appointment {
+            padding: 60px 0;
+            background: linear-gradient(rgba(0, 86, 179, 0.9), rgba(0, 86, 179, 0.9)), url('appointment-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+        }
+        
+        .appointment-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+        
+        .appointment-info h2 {
+            margin-bottom: 20px;
+        }
+        
+        .appointment-info p {
+            margin-bottom: 30px;
+        }
+        
+        .appointment-form {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 5px;
+            color: #333;
+        }
+        
+        .appointment-form h3 {
+            margin-bottom: 20px;
+            color: #0056b3;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        
+        .form-group textarea {
+            height: 100px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding-top: 60px;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            padding-bottom: 40px;
+        }
+        
+        .footer-col h3 {
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-col h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: #0056b3;
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-col ul li a {
+            color: #ddd;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-col ul li a:hover {
+            color: #0056b3;
+            padding-left: 5px;
+        }
+        
+        .footer-col p {
+            margin-bottom: 15px;
+        }
+        
+        .footer-bottom {
+            background-color: #222;
+            padding: 20px 0;
+            text-align: center;
+        }
+        
+        /* Media Queries */
+        @media (max-width: 992px) {
+            nav ul {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .appointment-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-top .container {
+                flex-direction: column;
+            }
+            
+            .contact-info {
+                margin-bottom: 10px;
+            }
+            
+            .hero {
+                height: 400px;
+            }
+            
+            .hero h2 {
+                font-size: 28px;
+            }
+            
+            .section-title h2 {
+                font-size: 26px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .features-grid,
+            .departments-grid,
+            .doctors-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero {
+                height: 350px;
+                text-align: center;
+            }
+            
+            .hero-content {
+                max-width: 100%;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-top">
+            <div class="container">
+                <div class="contact-info">
+                    <div>
+                        <i class="fas fa-phone-alt"></i>
+                        <span>Emergency: (123) 456-7890</span>
+                    </div>
+                    <div>
+                        <i class="far fa-clock"></i>
+                        <span>24/7 Service</span>
+                    </div>
+                </div>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="logo-nav">
+                <div class="logo">
+                    <img src="images/hospital-logo.png" alt="HealthCare Logo">
+                    <h1>HealthCare General Hospital</h1>
+                </div>
+                <div class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li>
+                            <a href="#about">About</a>
+                            <ul>
+                                <li><a href="#history">Our History</a></li>
+                                <li><a href="#mission">Mission & Vision</a></li>
+                                <li><a href="#team">Our Team</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#services">Services</a>
+                            <ul>
+                                <li><a href="#emergency">Emergency Care</a></li>
+                                <li><a href="#cardiology">Cardiology</a></li>
+                                <li><a href="#neurology">Neurology</a></li>
+                                <li><a href="#pediatrics">Pediatrics</a></li>
+                                <li><a href="#all-services">All Services</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#doctors">Doctors</a></li>
+                        <li>
+                            <a href="#patient-info">Patient Info</a>
+                            <ul>
+                                <li><a href="#admission">Admission</a></li>
+                                <li><a href="#insurance">Insurance</a></li>
+                                <li><a href="#faqs">FAQs</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+                <button class="nav-btn">Appointment</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h2>Your Health Is Our Priority</h2>
+                <p>Welcome to HealthCare General Hospital, where we combine cutting-edge technology with compassionate care to ensure your well-being.</p>
+                <a href="#appointment" class="btn">Book an Appointment</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Choose Us</h2>
+                <p>We're dedicated to providing the highest quality healthcare services.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fas fa-user-md"></i>
+                    <h3>Expert Doctors</h3>
+                    <p>Our team consists of highly qualified and experienced medical professionals.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-procedures"></i>
+                    <h3>Modern Equipment</h3>
+                    <p>We utilize state-of-the-art technology for accurate diagnosis and treatment.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-ambulance"></i>
+                    <h3>Emergency Care</h3>
+                    <p>24/7 emergency services with quick response time to save lives.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-heartbeat"></i>
+                    <h3>Personalized Care</h3>
+                    <p>Tailored healthcare plans that address your specific needs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Departments Section -->
+    <section class="departments" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Departments</h2>
+                <p>Specialized care for all your health needs.</p>
+            </div>
+            <div class="departments-grid">
+                <div class="department-card">
+                    <div class="department-img" style="background-image: url('images/cardiology.jpg');"></div>
+                    <div class="department-content">
+                        <h3>Cardiology</h3>
+                        <p>Comprehensive cardiac care with advanced diagnostic and interventional procedures.</p>
+                        <a href="#cardiology" class="btn">Learn More</a>
+                    </div>
+                </div>
+                <div class="department-card">
+                    <div class="department-img" style="background-image: url('images/neurology.jpg');"></div>
+                    <div class="department-content">
+                        <h3>Neurology</h3>
+                        <p>Expert diagnosis and treatment for complex neurological conditions.</p>
+                        <a href="#neurology" class="btn">Learn More</a>
+                    </div>
+                </div>
+                <div class="department-card">
+                    <div class="department-img" style="background-image: url('images/pediatrics.jpg');"></div>
+                    <div class="department-content">
+                        <h3>Pediatrics</h3>
+                        <p>Child-friendly healthcare services from birth through adolescence.</p>
+                        <a href="#pediatrics" class="btn">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Doctors Section -->
+    <section class="doctors" id="doctors">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Doctors</h2>
+                <p>Meet our team of experienced healthcare professionals.</p>
+            </div>
+            <div class="doctors-grid">
+                <div class="doctor-card">
+                    <div class="doctor-img" style="background-image: url('images/doctor1.jpg');"></div>
+                    <div class="doctor-info">
+                        <h3>Dr. John Smith</h3>
+                        <p>Cardiologist</p>
+                        <p>With over 15 years of experience in treating complex cardiac conditions.</p>
+                        <div class="doctor-social">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="doctor-card">
+                    <div class="doctor-img" style="background-image: url('images/doctor2.jpg');"></div>
+                    <div class="doctor-info">
+                        <h3>Dr. Sarah Johnson</h3>
+                        <p>Neurologist</p>
+                        <p>Specializes in movement disorders and neurological rehabilitation.</p>
+                        <div class="doctor-social">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="doctor-card">
+                    <div class="doctor-img" style="background-image: url('images/doctor3.jpg');"></div>
+                    <div class="doctor-info">
+                        <h3>Dr. Michael Chen</h3>
+                        <p>Pediatrician</p>
+                        <p>Dedicated to providing compassionate care for children of all ages.</p>
+                        <div class="doctor-social">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="doctor-card">
+                    <div class="doctor-img" style="background-image: url('images/doctor4.jpg');"></div>
+                    <div class="doctor-info">
+                        <h3>Dr. Amanda Rodriguez</h3>
+                        <p>Oncologist</p>
+                        <p>Research-focused approach to cancer treatment and management.</p>
+                        <div class="doctor-social">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Patient Testimonials</h2>
+                <p>What our patients say about their experience.</p>
+            </div>
+            <div class="testimonial-slider">
+                <div class="testimonial">
+                    <p>"The care I received at HealthCare General Hospital was exceptional. The doctors were attentive, and the staff was incredibly supportive throughout my recovery process."</p>
+                    <div class="testimonial-author">
+                        <img src="images/patient1.jpg" alt="Patient">
+                        <div class="author-info">
+                            <h4>Robert Johnson</h4>
+                            <small>Cardiac Patient</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Appointment Section -->
+    <section class="appointment" id="appointment">
+        <div class="container">
+            <div class="appointment-container">
+                <div class="appointment-info">
+                    <h2>Book an Appointment</h2>
+                    <p>Schedule a consultation with our specialists to get the care you need. We offer flexible appointment times to accommodate your busy schedule.</p>
+                    <p>You can also call us at (123) 456-7890 to book directly.</p>
+                </div>
+                <div class="appointment-form">
+                    <h3>Request Appointment</h3>
+                    <form action="#" method="POST">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="department">Department</label>
+                            <select id="department" name="department" required>
+                                <option value="">-- Select Department --</option>
+                                <option value="cardiology">Cardiology</option>
+                                <option value="neurology">Neurology</option>
+                                <option value="pediatrics">Pediatrics</option>
+                                <option value="orthopedics">Orthopedics</option>
+                                <option value="dentistry">Dentistry</option>
+                                <option value="ophthalmology">Ophthalmology</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="doctor">Preferred Doctor (Optional)</label>
+                            <select id="doctor" name="doctor">
+                                <option value="">-- Select Doctor --</option>
+                                <option value="dr-smith">Dr. John Smith</option>
+                                <option value="dr-johnson">Dr. Sarah Johnson</option>
+                                <option value="dr-chen">Dr. Michael Chen</option>
+                                <option value="dr-rodriguez">Dr. Amanda Rodriguez</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="date">Preferred Date</label>
+                            <input type="date" id="date" name="date" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="time">Preferred Time</label>
+                            <select id="time" name="time" required>
+                                <option value="">-- Select Time --</option>
+                                <option value="morning">Morning (8:00 AM - 12:00 PM)</option>
+                                <option value="afternoon">Afternoon (1:00 PM - 5:00 PM)</option>
+                                <option value="evening">Evening (6:00 PM - 8:00 PM)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message (Optional)</label>
+                            <textarea id="message" name="message"></textarea>
+                        </div>
+                        <button type="submit" class="btn">Submit Request</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>About Us</h3>
+                    <p>HealthCare General Hospital is dedicated to providing exceptional healthcare services with compassion and expertise.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#doctors">Doctors</a></li>
+                        <li><a href="#appointment">Appointment</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Departments</h3>
+                    <ul>
+                        <li><a href="#cardiology">Cardiology</a></li>
+                        <li><a href="#neurology">Neurology</a></li>
+                        <li><a href="#pediatrics">Pediatrics</a></li>
+                        <li><a href="#orthopedics">Orthopedics</a></li>
+                        <li><a href="#dentistry">Dentistry</a></li>
+                        <li><a href="#ophthalmology">Ophthalmology</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Info</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Hospital Street, Medical City, Country</p>
+                    <p><i class="fas fa-phone-alt"></i> (123) 456-7890</p>
+                    <p><i class="fas fa-envelope"></i> info@healthcarehospital.com</p>
+                    <p><i class="far fa-clock"></i> Open 24/7</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2025 HealthCare General Hospital. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.querySelector('nav ul').classList.toggle('active');
+        });
+
+        // Appointment Form Validation
+        const appointmentForm = document.querySelector('.appointment-form form');
+        if (appointmentForm) {
+            appointmentForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                // Basic form validation
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const phone = document.getElementById('phone').value;
+                const department = document.getElementById('department').value;
+                const date = document.getElementById('date').value;
+                const time = document.getElementById('time').value;
+                
+                if (name && email && phone && department && date && time) {
+                    // Form validation success
+                    alert('Appointment request submitted successfully! We will contact you shortly to confirm your appointment.');
+                    this.reset();
+                } else {
+                    alert('Please fill out all required fields.');
+                }
+            });
+        }
+
+        // Testimonial Slider
+        // Create a proper testimonial slider with automatic rotation and navigation controls
+        const testimonials = [
+            {
+                text: "The care I received at HealthCare General Hospital was exceptional. The doctors were attentive, and the staff was incredibly supportive throughout my recovery process.",
+                name: "Robert Johnson",
+                role: "Cardiac Patient",
+                image: "images/patient1.jpg"
+            },
+            {
+                text: "I was impressed by the advanced technology and the expertise of the medical team. They explained everything clearly and made me feel comfortable during my treatment.",
+                name: "Emma Thompson",
+                role: "Neurology Patient",
+                image: "images/patient2.jpg"
+            },
+            {
+                text: "The pediatric department took excellent care of my daughter. The child-friendly environment and compassionate staff made a difficult situation much easier for our family.",
+                name: "Michael Davis",
+                role: "Parent of Pediatric Patient",
+                image: "images/patient3.jpg"
+            }
+        ];
+
+        // Initialize current testimonial index
+        let currentTestimonial = 0;
+        const testimonialElement = document.querySelector('.testimonial');
+
+        // Function to update testimonial display
+        function updateTestimonial() {
+            const testimonialContent = `
+                <p>"${testimonials[currentTestimonial].text}"</p>
+                <div class="testimonial-author">
+                    <img src="${testimonials[currentTestimonial].image}" alt="${testimonials[currentTestimonial].name}">
+                    <div class="author-info">
+                        <h4>${testimonials[currentTestimonial].name}</h4>
+                        <small>${testimonials[currentTestimonial].role}</small>
+                    </div>
+                </div>
+            `;
+            testimonialElement.innerHTML = testimonialContent;
+        }
+
+        // Initialize first testimonial
+        updateTestimonial();
+
+        // Add navigation controls to the testimonial slider
+        const testimonialSlider = document.querySelector('.testimonial-slider');
+
+        // Create navigation arrows
+        const navControls = document.createElement('div');
+        navControls.className = 'testimonial-nav';
+        navControls.innerHTML = `
+            <button class="prev-btn"><i class="fas fa-chevron-left"></i></button>
+            <div class="testimonial-dots"></div>
+            <button class="next-btn"><i class="fas fa-chevron-right"></i></button>
+        `;
+        testimonialSlider.appendChild(navControls);
+
+        // Create dot indicators
+        const dotsContainer = document.querySelector('.testimonial-dots');
+        testimonials.forEach((_, index) => {
+            const dot = document.createElement('span');
+            dot.className = 'dot';
+            if (index === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => {
+                currentTestimonial = index;
+                updateTestimonial();
+                updateDots();
+            });
+            dotsContainer.appendChild(dot);
+        });
+
+        // Function to update dot indicators
+        function updateDots() {
+            const dots = document.querySelectorAll('.dot');
+            dots.forEach((dot, index) => {
+                if (index === currentTestimonial) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        }
+
+        // Setup prev button click
+        document.querySelector('.prev-btn').addEventListener('click', () => {
+            currentTestimonial--;
+            if (currentTestimonial < 0) {
+                currentTestimonial = testimonials.length - 1;
+            }
+            updateTestimonial();
+            updateDots();
+        });
+
+        // Setup next button click
+        document.querySelector('.next-btn').addEventListener('click', () => {
+            currentTestimonial++;
+            if (currentTestimonial >= testimonials.length) {
+                currentTestimonial = 0;
+            }
+            updateTestimonial();
+            updateDots();
+        });
+
+        // Auto rotate testimonials
+        let testimonialInterval = setInterval(() => {
+            currentTestimonial++;
+            if (currentTestimonial >= testimonials.length) {
+                currentTestimonial = 0;
+            }
+            updateTestimonial();
+            updateDots();
+        }, 5000);
+
+        // Pause auto-rotation on hover
+        testimonialSlider.addEventListener('mouseenter', () => {
+            clearInterval(testimonialInterval);
+        });
+
+        // Resume auto-rotation when mouse leaves
+        testimonialSlider.addEventListener('mouseleave', () => {
+            testimonialInterval = setInterval(() => {
+                currentTestimonial++;
+                if (currentTestimonial >= testimonials.length) {
+                    currentTestimonial = 0;
+                }
+                updateTestimonial();
+                updateDots();
+            }, 5000);
+        });
+        // Initialize current date for the appointment form
+        const dateInput = document.getElementById('date');
+        if (dateInput) {
+            const today = new Date();
+            const yyyy = today.getFullYear();
+            let mm = today.getMonth() + 1;
+            let dd = today.getDate();
+            
+            if (dd < 10) dd = '0' + dd;
+            if (mm < 10) mm = '0' + mm;
+            
+            const formattedToday = yyyy + '-' + mm + '-' + dd;
+            dateInput.setAttribute('min', formattedToday);
+        }
+        
+        // Department and Doctor Selection Coordination
+        const departmentSelect = document.getElementById('department');
+        const doctorSelect = document.getElementById('doctor');
+        
+        if (departmentSelect && doctorSelect) {
+            departmentSelect.addEventListener('change', function() {
+                const department = this.value;
+                
+                // Reset doctor selection
+                doctorSelect.innerHTML = '<option value="">-- Select Doctor --</option>';
+                
+                // Populate doctors based on department
+                if (department === 'cardiology') {
+                    doctorSelect.innerHTML += '<option value="dr-smith">Dr. John Smith</option>';
+                    doctorSelect.innerHTML += '<option value="dr-patel">Dr. Raj Patel</option>';
+                } else if (department === 'neurology') {
+                    doctorSelect.innerHTML += '<option value="dr-johnson">Dr. Sarah Johnson</option>';
+                    doctorSelect.innerHTML += '<option value="dr-williams">Dr. Thomas Williams</option>';
+                } else if (department === 'pediatrics') {
+                    doctorSelect.innerHTML += '<option value="dr-chen">Dr. Michael Chen</option>';
+                    doctorSelect.innerHTML += '<option value="dr-garcia">Dr. Maria Garcia</option>';
+                } else if (department === 'orthopedics') {
+                    doctorSelect.innerHTML += '<option value="dr-miller">Dr. James Miller</option>';
+                    doctorSelect.innerHTML += '<option value="dr-brown">Dr. Robert Brown</option>';
+                } else if (department === 'dentistry') {
+                    doctorSelect.innerHTML += '<option value="dr-wilson">Dr. Emily Wilson</option>';
+                    doctorSelect.innerHTML += '<option value="dr-lee">Dr. David Lee</option>';
+                } else if (department === 'ophthalmology') {
+                    doctorSelect.innerHTML += '<option value="dr-rodriguez">Dr. Amanda Rodriguez</option>';
+                    doctorSelect.innerHTML += '<option value="dr-nguyen">Dr. Vivian Nguyen</option>';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
